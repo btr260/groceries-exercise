@@ -1,6 +1,8 @@
 # groceries.py
 
 #from pprint import pprint
+import operator
+
 
 #FUNCTIONS
 def to_usd(my_price):
@@ -43,7 +45,8 @@ print("--------------")
 print("THERE ARE ", len(products)," PRODUCTS:",sep="")
 print("--------------")
 
-sorted_products = sorted(products,key=sort_by_name)
+#sorted_products = sorted(products,key=sort_by_name) #sorted function - products as the 'iterable' or list to sort, second param is key
+sorted_products=sorted(products,key=operator.itemgetter('name')) #using the operator module
 
 for item in sorted_products:
     #print("+ ",item["name"]" (${0:,.2f})".format(item["price"]),sep="")
