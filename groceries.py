@@ -37,7 +37,7 @@ products = [
 
 # TODO: write some Python code here to produce the desired output
 print("--------------")
-print("THERE ARE ", len(products)," PRODUCTS:")
+print("THERE ARE ", len(products)," PRODUCTS:",sep="")
 print("--------------")
 
 sorted_products = sorted(products,key=sort_by_name)
@@ -48,6 +48,25 @@ for item in sorted_products:
     #print("+ ",item['name']" (",to_usd(item['price']),")",sep="")
     print(f"+ {item['name']} ({to_usd(item['price'])})")
 
-#print("--------------")
-#print("THERE ARE ", len(), " PRODUCTS:")
-#print("--------------")
+#Make list of departments
+
+dept = []
+for item in products:
+    if item['department'] not in dept:
+        dept.append(item['department'])
+
+dept = sorted(dept)
+
+#print(dept)
+
+#dept = [i['department'] for i in products]
+#print(dept)
+
+dept_cnt = len(dept)
+
+print("--------------")
+print("THERE ARE ", dept_cnt, " PRODUCTS:",sep="")
+print("--------------")
+
+for d in dept:
+        print(d)
