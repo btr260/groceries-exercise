@@ -6,7 +6,8 @@
 def to_usd(my_price):
     return f"${my_price:,.2f}"
 
-
+def sort_by_name(any_product):
+    return (any_product['name'])
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -39,7 +40,9 @@ print("--------------")
 print("THERE ARE ", len(products)," PRODUCTS:")
 print("--------------")
 
-for item in products:
+sorted_products = sorted(products,key=sort_by_name)
+
+for item in sorted_products:
     #print("+ ",item["name"]" (${0:,.2f})".format(item["price"]),sep="")
     #print(f"+ {item['name']} (${item['price']:,.2f})")
     #print("+ ",item['name']" (",to_usd(item['price']),")",sep="")
