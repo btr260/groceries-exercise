@@ -9,6 +9,9 @@ def to_usd(my_price):
 def sort_by_name(any_product):
     return (any_product['name'])
 
+def prods_from(any_dept):
+    return [i for i in products if i['department']==any_dept]
+
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -74,8 +77,9 @@ dept = sorted(dept)
 dept_cnt = len(dept)
 
 print("--------------")
-print("THERE ARE ", dept_cnt, " PRODUCTS:",sep="")
+print("THERE ARE "+str(dept_cnt)+" PRODUCTS:")
 print("--------------")
 
 for d in dept:
-        print(d)
+    dept_prods=prods_from(d)
+    print("+ "+d.title()+" ("+str(len(dept_prods))+" products)")
