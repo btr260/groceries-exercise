@@ -2,6 +2,12 @@
 
 #from pprint import pprint
 
+#FUNCTIONS
+def to_usd(my_price):
+    return f"${my_price:,.2f}"
+
+
+
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -34,4 +40,11 @@ print("THERE ARE ", len(products)," PRODUCTS:")
 print("--------------")
 
 for item in products:
-    print(item["name"]," (",item["price"],")")
+    #print("+ ",item["name"]" (${0:,.2f})".format(item["price"]),sep="")
+    #print(f"+ {item['name']} (${item['price']:,.2f})")
+    #print("+ ",item['name']" (",to_usd(item['price']),")",sep="")
+    print(f"+ {item['name']} ({to_usd(item['price'])})")
+
+#print("--------------")
+#print("THERE ARE ", len(), " PRODUCTS:")
+#print("--------------")
