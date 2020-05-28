@@ -50,10 +50,19 @@ for item in sorted_products:
 
 #Make list of departments
 
+
 dept = []
+
+#APPROACH 1
+#for item in products:
+#    if item['department'] not in dept:
+#        dept.append(item['department'])
+
+#APPROACH 2
 for item in products:
-    if item['department'] not in dept:
-        dept.append(item['department'])
+    dept.append(item['department']) not in dept
+
+dept=list(set(dept)) #set takes unique elements and makes it a set variable, list turns it back to list
 
 dept = sorted(dept)
 
