@@ -81,5 +81,10 @@ print("THERE ARE "+str(dept_cnt)+" PRODUCTS:")
 print("--------------")
 
 for d in dept:
-    dept_prods=prods_from(d)
-    print("+ "+d.title()+" ("+str(len(dept_prods))+" products)")
+    dept_prods = prods_from(d)
+    if len(dept_prods)!=1:
+        plural = " products)"
+    else:
+        plural = " product)"
+
+    print("+ "+d.title()+" ("+str(len(dept_prods))+plural)
