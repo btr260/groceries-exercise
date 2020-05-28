@@ -77,7 +77,7 @@ dept = sorted(dept)
 dept_cnt = len(dept)
 
 print("--------------")
-print("THERE ARE "+str(dept_cnt)+" PRODUCTS:")
+print("THERE ARE "+str(dept_cnt)+" DEPARTMENTS:")
 print("--------------")
 
 for d in dept:
