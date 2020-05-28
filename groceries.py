@@ -1,10 +1,13 @@
 # groceries.py
 
 #from pprint import pprint
+
+#PACKAGES
+
 import operator
 
 
-#FUNCTIONS
+# FUNCTIONS
 def to_usd(my_price):
     return f"${my_price:,.2f}"
 
@@ -45,8 +48,12 @@ print("--------------")
 print("THERE ARE ", len(products)," PRODUCTS:",sep="")
 print("--------------")
 
+# SORTING PRODUCTS
+
 #sorted_products = sorted(products,key=sort_by_name) #sorted function - products as the 'iterable' or list to sort, second param is key
 sorted_products=sorted(products,key=operator.itemgetter('name')) #using the operator module
+
+# LISTING PRODUCTS AND PRICES
 
 for item in sorted_products:
     #print("+ ",item["name"]" (${0:,.2f})".format(item["price"]),sep="")
@@ -54,8 +61,8 @@ for item in sorted_products:
     #print("+ ",item['name']" (",to_usd(item['price']),")",sep="")
     print(f"+ {item['name']} ({to_usd(item['price'])})")
 
-#Make list of departments
 
+# MAKE LIST OF DEPARTMENTS
 
 dept = []
 
@@ -71,11 +78,7 @@ for item in products:
 dept=list(set(dept)) #set takes unique elements and makes it a set variable, list turns it back to list
 
 dept = sorted(dept)
-
-#print(dept)
-
-#dept = [i['department'] for i in products]
-#print(dept)
+#dept.sort() #mutating function - does the sorting directly to the variable
 
 dept_cnt = len(dept)
 
@@ -84,7 +87,8 @@ print("THERE ARE "+str(dept_cnt)+" DEPARTMENTS:")
 print("--------------")
 
 for d in dept:
-    dept_prods = prods_from(d)
+    #dept_prods = prods_from(d)     #using a function that does list comprehension
+    dept_prods = [i for i in products if i['department']==d]    #doing list comprehension directly
     if len(dept_prods)!=1:
         plural = " products)"
     else:
